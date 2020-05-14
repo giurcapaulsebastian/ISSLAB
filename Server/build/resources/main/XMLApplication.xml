@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="jdbcprops" location="classpath:db.config"></util:properties>
+
+    <bean id="repositoryUser" class="Repository.RepositoryUser">
+        <constructor-arg ref="jdbcprops"></constructor-arg>
+    </bean>
+
+    <bean id="repositorySubscription" class="Repository.RepositorySubscription">
+        <constructor-arg ref="jdbcprops"></constructor-arg>
+    </bean>
+
+    <bean id="repositoryCustomer" class="Repository.RepositoryCustomer">
+        <constructor-arg ref="jdbcprops"></constructor-arg>
+    </bean>
+
+    <bean id="repositoryProduct" class="Repository.RepositoryProduct">
+        <constructor-arg ref="jdbcprops"></constructor-arg>
+    </bean>
+
+    <bean id="ServerImplementation" class="Server.ServerImplementation">
+        <constructor-arg ref="jdbcprops"></constructor-arg>
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="ServerImplementation"></property>
+        <property name="service" ref="ServerImplementation"></property>
+        <property name="serviceInterface" value="Utils.IServer"></property>
+        <property name="servicePort" value="1099"></property>
+    </bean>
+
+
+</beans>

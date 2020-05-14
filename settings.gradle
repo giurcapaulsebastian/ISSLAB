@@ -1,0 +1,8 @@
+rootProject.name = 'GymAPP'
+include 'Networking'
+include 'Model'
+include 'Repositories'
+include 'Services'
+include 'Client'
+include 'Server'
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="594.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MenuController">
+   <children>
+      <Button layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#doOrder" prefHeight="31.0" prefWidth="126.0" text="COMANDA" />
+      <Button layoutX="49.0" layoutY="529.0" mnemonicParsing="false" text="LOG OUT" />
+      <TableView fx:id="tableView" layoutX="248.0" layoutY="32.0" prefHeight="540.0" prefWidth="882.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="218.0" text="NUME" />
+          <TableColumn fx:id="manufacturerColumn" prefWidth="288.0" text="PRODUCATOR" />
+            <TableColumn fx:id="priceColumn" prefWidth="206.0" text="PRET" />
+            <TableColumn fx:id="quantityColumn" prefWidth="169.0" text="CANTITATE VALABILA" />
+        </columns>
+      </TableView>
+      <TextField fx:id="quantityTextField" layoutX="39.0" layoutY="210.0" promptText="Introduceti cantitatea" />
+   </children>
+</AnchorPane>
